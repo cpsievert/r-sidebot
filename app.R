@@ -9,6 +9,13 @@ library(ggridges)
 library(dplyr)
 library(querychat)
 
+# Implicit dependencies needed by connect
+if (FALSE) {
+  library(reticulate)
+  library(magick)
+}
+
+
 tips <- readr::read_csv(here("tips.csv")) |>
   mutate(percent = round((tip / total_bill) * 100, 2))
 
